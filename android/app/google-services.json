@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "670762248700",
+    "project_id": "courseefy",
+    "storage_bucket": "courseefy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:670762248700:android:0e3ec0dcc5511b1351aa79",
+        "android_client_info": {
+          "package_name": "com.hossam.hasanin.courseefy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "670762248700-e6va6fr63ts51ctbimn7q8fvdq2q1mp1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hossam.hasanin.courseefy",
+            "certificate_hash": "4cce53075844cfeadc691aa9a2bad72d88cf303f"
+          }
+        },
+        {
+          "client_id": "670762248700-6b594p2dflpn817q8vp96irj2kc6t88h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZm25CgvDfRsCkiH7wYcLmTbrlM8Ne3EI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "670762248700-6b594p2dflpn817q8vp96irj2kc6t88h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
