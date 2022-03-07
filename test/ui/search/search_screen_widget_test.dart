@@ -43,7 +43,10 @@ void main(){
         rating: 0,
         level: "",
         cost: 0,
-        duration: 0
+        duration: 0,
+        studentNumber: 0,
+        introduction: "",
+        introVideoUrl: ""
     ),
 
     Course(
@@ -56,7 +59,10 @@ void main(){
         rating: 0,
         cost:0,
         level: "",
-        duration: 0
+        duration: 0,
+        studentNumber: 0,
+        introduction: "",
+        introVideoUrl: ""
     ),
   ];
   const searchQuery = "Dart";

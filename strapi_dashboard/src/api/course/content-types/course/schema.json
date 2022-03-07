@@ -1,0 +1,77 @@
+{
+  "kind": "collectionType",
+  "collectionName": "courses",
+  "info": {
+    "singularName": "course",
+    "pluralName": "courses",
+    "displayName": "Course",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "description": {
+      "type": "text"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "courses"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "courses"
+    },
+    "rating": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::rating.rating",
+      "mappedBy": "course"
+    },
+    "ratings_users": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ratings-user.ratings-user",
+      "mappedBy": "course"
+    },
+    "cost": {
+      "type": "decimal",
+      "default": 0
+    },
+    "level": {
+      "type": "enumeration",
+      "enum": [
+        "Beginner",
+        "Intermediate",
+        "advanced"
+      ],
+      "default": "Beginner"
+    },
+    "duration": {
+      "type": "decimal",
+      "default": 0
+    },
+    "course_reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::course-review.course-review",
+      "mappedBy": "course"
+    }
+  }
+}

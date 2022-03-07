@@ -15,6 +15,14 @@ class Category extends Equatable{
     required this.cover,
   });
 
+  factory Category.empty(){
+    return const Category(
+        id: -1,
+        title: "",
+        description: "",
+        cover: "");
+  }
+
   @override
   List<Object?> get props => [
     id,

@@ -27,7 +27,7 @@ class CourseDetailsScreen extends StatelessWidget {
         actions: [
           IconButton(
               onPressed: (){},
-              icon: const Icon(Icons.favorite , color: Color(0xff0B121F),))
+              icon: const Icon(Icons.favorite_border , color: Color(0xff0B121F),))
         ],
       ),
       body: const Body(),

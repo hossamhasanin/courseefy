@@ -35,7 +35,10 @@ void main(){
         rating: 0,
         level: "",
         cost: 0,
-        duration: 0
+        duration: 0,
+        studentNumber: 0,
+        introduction: "",
+        introVideoUrl: ""
     ),
 
     Course(
@@ -48,7 +51,10 @@ void main(){
         rating: 0,
         level: "",
         cost: 0,
-        duration: 0
+        duration: 0,
+        studentNumber: 0,
+        introduction: "",
+        introVideoUrl: ""
     ),
   ];
   final dataError = DataException("Error in server" , "Error");
@@ -130,7 +136,10 @@ void main(){
           rating: 0,
           level: "",
           cost: 0,
-          duration: 0
+          duration: 0,
+          studentNumber: 0,
+          introduction: "",
+          introVideoUrl: ""
       );
       when(() => repo.getSearchedCourses(searchQuery , []))
           .thenAnswer((_) async => DataWithError<List<Course>>(courses, null));

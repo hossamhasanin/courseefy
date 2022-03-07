@@ -21,6 +21,9 @@ class CourseAdapter extends TypeAdapter<Course>{
         level: reader.read(),
         cost: reader.read(),
         duration: reader.read(),
+        introVideoUrl: reader.read(),
+        introduction: reader.read(),
+        studentNumber: reader.read(),
         tutor: _userAdapter.read(reader),
         category: _categoryAdapter.read(reader)
     );
@@ -40,6 +43,9 @@ class CourseAdapter extends TypeAdapter<Course>{
     writer.write(obj.level);
     writer.write(obj.cost);
     writer.write(obj.duration);
+    writer.write(obj.introVideoUrl);
+    writer.write(obj.introduction);
+    writer.write(obj.studentNumber);
     _userAdapter.write(writer, obj.tutor);
     _categoryAdapter.write(writer, obj.category);
   }

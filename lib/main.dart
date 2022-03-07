@@ -26,38 +26,38 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         // is not restarted.
         primarySwatch: Colors.blue,
-        textTheme: TextTheme(
-          headline1: const TextStyle(
+        textTheme: const TextTheme(
+          headlineMedium: TextStyle(
             color: Color(0xff282F3E),
             fontFamily: "jakarta",
             fontSize: 16.0,
             fontWeight: FontWeight.w600
           ),
-          headline2: const TextStyle(
+          headlineSmall: TextStyle(
             color: Color(0xff282F3E),
             fontFamily: "jakarta",
             fontSize: 15.0,
             fontWeight: FontWeight.w300
           ),
-          caption: const TextStyle(
+          labelSmall: TextStyle(
               color: Color(0xff9FA3A9),
               fontFamily: "jakarta",
-              fontSize: 13.0,
+              fontSize: 11.0,
               fontWeight: FontWeight.w300
           ),
-          titleMedium: const TextStyle(
+          titleMedium: TextStyle(
               color: Color(0xff282F3E),
               fontFamily: "jakarta",
               fontSize: 22.0,
               fontWeight: FontWeight.w600
           ),
-          bodySmall: const TextStyle(
+          bodySmall: TextStyle(
               color: Color(0xff585D69),
               fontFamily: "jakarta",
               fontSize: 15.0,
               fontWeight: FontWeight.w300
           ),
-          bodyMedium: const TextStyle(
+          bodyMedium: TextStyle(
               color: Color(0xff585D69),
               fontFamily: "jakarta",
               fontSize: 16.0,

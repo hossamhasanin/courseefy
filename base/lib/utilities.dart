@@ -11,3 +11,19 @@ String calculateTime(int timeStamp){
     return "${timeDifferance.inSeconds} Seconds ago";
   }
 }
+
+String calculateCourseDuration(double durationInHours){
+  var hours = durationInHours.truncate();
+  var minutes = ((durationInHours - hours) * 60).round();
+  return "$hours Hours $minutes Minutes";
+}
+
+String calculateNumberOfStudentsInCourse(int numOfStudents){
+  if (numOfStudents > 1000000){
+    return "${numOfStudents / 1000000}M students";
+  } else if (numOfStudents > 1000){
+    return "${numOfStudents / 1000}K students";
+  } else {
+    return "$numOfStudents students";
+  }
+}

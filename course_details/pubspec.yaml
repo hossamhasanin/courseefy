@@ -29,6 +29,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   video_player:
   chewie:
+  get:
 
   mp4_player:
     path: ../mp4_player
