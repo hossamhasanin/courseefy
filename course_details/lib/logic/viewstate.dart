@@ -7,9 +7,13 @@ class ViewState {
   final bool reviewsLoading;
   final bool loadingLessons;
   final bool loadMoreReviews;
+  final bool loadMoreLessons;
   final bool stopLoadingMoreReviews;
+  final bool stopLoadingMoreLessons;
   final String errorReviews;
   final String errorLessons;
+  final bool isEnrolledInCourse;
+  final bool checkIfEnrolledInCourse;
 
   ViewState({
     required this.course,
@@ -20,7 +24,11 @@ class ViewState {
     required this.errorReviews,
     required this.errorLessons,
     required this.loadingLessons,
-    required this.stopLoadingMoreReviews
+    required this.loadMoreLessons,
+    required this.stopLoadingMoreReviews,
+    required this.stopLoadingMoreLessons,
+    required this.isEnrolledInCourse,
+    required this.checkIfEnrolledInCourse
   });
 
   factory ViewState.init(){
@@ -33,7 +41,11 @@ class ViewState {
         loadMoreReviews: false,
         errorLessons: "",
         errorReviews: "",
-        stopLoadingMoreReviews: false
+        stopLoadingMoreReviews: false,
+        loadMoreLessons: false,
+        stopLoadingMoreLessons: false,
+        isEnrolledInCourse: false,
+        checkIfEnrolledInCourse: false
     );
   }
 
@@ -46,7 +58,11 @@ class ViewState {
     String? errorReviews,
     String? errorLessons,
     bool? loadMoreReviews,
-    bool? stopLoadingMoreReviews
+    bool? loadMoreLessons,
+    bool? stopLoadingMoreReviews,
+    bool? stopLoadingMoreLessons,
+    bool? isEnrolledInCourse,
+    bool? checkIfEnrolledInCourse
   }){
     return ViewState(
         course: course ?? this.course,
@@ -57,7 +73,11 @@ class ViewState {
         loadMoreReviews: loadMoreReviews ?? this.loadMoreReviews,
         errorLessons: errorLessons ?? this.errorLessons,
         errorReviews: errorReviews ?? this.errorReviews,
-        stopLoadingMoreReviews: stopLoadingMoreReviews ?? this.stopLoadingMoreReviews
+        loadMoreLessons: loadMoreLessons ?? this.loadMoreLessons,
+        stopLoadingMoreReviews: stopLoadingMoreReviews ?? this.stopLoadingMoreReviews,
+        stopLoadingMoreLessons: stopLoadingMoreLessons ?? this.stopLoadingMoreLessons,
+        isEnrolledInCourse: isEnrolledInCourse ?? this.isEnrolledInCourse,
+        checkIfEnrolledInCourse: checkIfEnrolledInCourse ?? this.checkIfEnrolledInCourse
     );
   }
 }

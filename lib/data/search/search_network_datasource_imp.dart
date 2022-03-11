@@ -42,7 +42,7 @@ class SearchNetworkDataSourceImp implements SearchNetworkDataSource{
     try {
       var response = await dio.get("/courses?filters[title][\$contains]=$searchQuery"
           "&sort[0]=createdAt:desc"
-          "&populate[0]=user.image"
+          "&populate[0]=tutor.image"
           "&populate[1]=image"
           "&populate[2]=category.cover"
           "&populate[3]=rating&_limit=2"+_prepareFiltersParameters(filters));

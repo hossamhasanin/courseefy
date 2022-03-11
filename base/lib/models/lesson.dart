@@ -1,5 +1,7 @@
 import 'package:equatable/equatable.dart';
 
+import 'user.dart';
+
 class Lesson extends Equatable{
   final int id;
   final int courseId;
@@ -7,6 +9,8 @@ class Lesson extends Equatable{
   final String description;
   final String videoUrl;
   final String thumpNail;
+  final LessonType lessonType;
+  final User tutor;
 
   const Lesson({
     required this.id,
@@ -14,7 +18,9 @@ class Lesson extends Equatable{
     required this.title,
     required this.description,
     required this.videoUrl,
-    required this.thumpNail
+    required this.thumpNail,
+    required this.tutor,
+    required this.lessonType
   });
 
   @override
@@ -24,7 +30,13 @@ class Lesson extends Equatable{
     title,
     description,
     videoUrl,
-    thumpNail
+    thumpNail,
+    tutor,
+    lessonType
   ];
 
+}
+
+enum LessonType {
+  VIDEO , QUIZ
 }

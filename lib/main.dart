@@ -65,10 +65,11 @@ class MyApp extends StatelessWidget {
           )
         )
       ),
-      home: const CourseDetailsScreen(),
+      home: const SearchScreen(),
       getPages: [
         GetPage(name: LOGIN_SCREEN, page:()=> const LoginScreen()),
         GetPage(name: HOME_SCREEN, page:()=> HomeScreen()),
+        GetPage(name: COURSE_DETAILS, page:()=> const CourseDetailsScreen()),
       ],
     );
   }

@@ -9,6 +9,7 @@ class CourseDetailsController extends GetxController {
   late CourseDetailsUseCase _useCase;
   final RxBool displayOverViewSection = true.obs;
   int currentReviewsPage = 1;
+  int currentLessonsPage = 1;
 
   CourseDetailsController(CourseDetailsDataSource dataSource){
     _useCase = CourseDetailsUseCase(dataSource);
@@ -16,16 +17,28 @@ class CourseDetailsController extends GetxController {
 
   init(Course course) async {
     setCourseData(course);
+    await isEnrolledInCourse();
     await loadReviews();
     await loadLessons();
   }
 
-  setCourseData(Course course){
+  setCourseData(Course course) async {
     _updateViewState(
         viewState.copy(
             course: course
         )
     );
+  }
+
+  isEnrolledInCourse() async {
+    _updateViewState(viewState.copy(
+      checkIfEnrolledInCourse: true
+    ));
+    var result = await _useCase.isEnrolledInCourse(viewState.course.id);
+    _updateViewState(viewState.copy(
+      checkIfEnrolledInCourse: false,
+      isEnrolledInCourse: result is bool ? result : false
+    ));
   }
 
   loadReviews() async {
@@ -74,8 +87,9 @@ class CourseDetailsController extends GetxController {
   }
 
   loadLessons() async {
+    currentLessonsPage = 1;
     _updateViewState(viewState.copy(loadingLessons: true));
-    var results = await _useCase.getLessons(viewState.course.id);
+    var results = await _useCase.getLessons(viewState.course.id , currentLessonsPage);
     if (results is DataException){
       _updateViewState(viewState.copy(
           loadingLessons: false,
@@ -86,6 +100,32 @@ class CourseDetailsController extends GetxController {
         loadingLessons: false,
         lessons: results
     ));
+  }
+
+  loadMoreLessons(Function(int) animateItemToList) async {
+    _updateViewState(viewState.copy(
+        loadMoreLessons: true
+    ));
+    currentLessonsPage += 1;
+    var results = await _useCase.getLessons(viewState.course.id , currentLessonsPage);
+    if (results is DataException){
+      _updateViewState(viewState.copy(
+          loadMoreLessons: false,
+          errorLessons: results.code));
+      return;
+    }
+    List<Lesson> lessons = viewState.lessons;
+    lessons.addAll(results);
+    viewState = viewState.copy(
+      lessons: lessons,
+    );
+    animateItemToList(results.length);
+    _updateViewState(
+        viewState.copy(
+          stopLoadingMoreLessons: (results as  List<Lesson>).isEmpty,
+          loadMoreLessons: false,
+        )
+    );
   }
 
   _updateViewState(ViewState viewState){

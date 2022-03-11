@@ -42,7 +42,8 @@ class NetworkLoginDataSourceImp implements NetworkLoginDataSource{
       return UserMapper.fromAuthApiResponse(response.data);
     } on DioError catch (e){
       print("login error "+ e.response.toString());
-      throw AuthException(e.response!.data["error"]["message"]);
+      throw AuthException(e.response != null ? e.response!.data["error"]["message"]
+          :"Connection error");
     }
   }
 

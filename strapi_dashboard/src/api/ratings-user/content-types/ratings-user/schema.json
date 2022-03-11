@@ -16,7 +16,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "plugin::users-permissions.user",
-      "inversedBy": "ratings_courses"
+      "mappedBy": "ratings_courses"
     },
     "course": {
       "type": "relation",

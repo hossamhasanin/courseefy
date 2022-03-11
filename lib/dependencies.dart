@@ -1,6 +1,8 @@
+import 'package:course_details/logic/datasource.dart';
 import 'package:courseefy/configs.dart';
 import 'package:courseefy/data/cache/adapters/category_adapter.dart';
 import 'package:courseefy/data/cache/adapters/course_adapter.dart';
+import 'package:courseefy/data/course_details/course_details_datasource_imp.dart';
 import 'package:courseefy/data/main/main_cache_datasource_imp.dart';
 import 'package:courseefy/data/main/main_network_datasource.dart';
 import 'package:courseefy/data/cache/adapters/user_adapter.dart';
@@ -51,5 +53,7 @@ init(){
   Get.put<SearchNetworkDataSource>(SearchNetworkDataSourceImp(Get.find()));
   Get.put<SearchCacheDataSource>(SearchCacheDataSourceImp());
   Get.put<SearchRepository>(SearchRepositoryImp(Get.find() , Get.find()));
+
+  Get.put<CourseDetailsDataSource>(CourseDetailsDataSourceImp(Get.find()));
 
 }

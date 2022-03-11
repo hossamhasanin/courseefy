@@ -15,9 +15,18 @@ class CourseDetailsUseCase {
     }
   }
 
-  Future<dynamic> getLessons(int courseId) async {
+  Future<dynamic> getLessons(int courseId , int page) async {
     try {
-      var results = await _dataSource.getLessons(courseId);
+      var results = await _dataSource.getLessons(courseId , page);
+      return results;
+    } on DataException catch(e){
+      return e;
+    }
+  }
+
+  Future<dynamic> isEnrolledInCourse(int courseId) async {
+    try {
+      var results = await _dataSource.isEnrolledInTheCourse(courseId);
       return results;
     } on DataException catch(e){
       return e;

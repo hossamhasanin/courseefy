@@ -16,7 +16,7 @@ class CourseMapper{
         introduction: map["attributes"]["introduction"],
         studentNumber: map["attributes"]["studentNumber"],
         image: SERVER_URL + map["attributes"]["image"]["data"]["attributes"]["url"],
-        tutor: UserMapper.fromNormalApiResponse(map["attributes"]["user"]["data"]),
+        tutor: UserMapper.fromNormalApiResponse(map["attributes"]["tutor"]["data"]),
         category: CategoryMapper.fromApiResponse(map["attributes"]["category"]["data"]),
         rating: map["attributes"]["rating"]["data"] != null ?
         _calculateRating(map["attributes"]["rating"]["data"]) : 0

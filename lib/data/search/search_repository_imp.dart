@@ -44,12 +44,13 @@ class SearchRepositoryImp implements SearchRepository{
 
   @override
   Future<DataWithError<List<Course>>> getSearchedCourses(String searchQuery , List<FilterSelections> filters) async {
-    try{
-      return DataWithError(await _networkDataSource.getSearchedCourses(searchQuery , filters), null);
-    } catch (e){
-      print(e.toString());
-      return DataWithError([], e as DataException);
-    }
+    return DataWithError(await _networkDataSource.getSearchedCourses(searchQuery , filters), null);
+
+    // try{
+    // } catch (e){
+    //   print(e.toString());
+    //   return DataWithError([], e as DataException);
+    // }
   }
 
 

@@ -31,14 +31,13 @@ class OverViewPage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Obx((){
               return AnimatedSwitcher(
-                duration: const Duration(milliseconds: 100),
+                duration: const Duration(milliseconds: 300),
                 child: !textExpanded.value ? Text(_controller.viewState.course.introduction,
                   style: Theme.of(context).textTheme.bodySmall,
                   maxLines: 5,
                   overflow: TextOverflow.ellipsis,
                 ): Text(_controller.viewState.course.introduction,
                   style: Theme.of(context).textTheme.bodySmall,
-                  overflow: TextOverflow.ellipsis,
                 ),
               );
             }),
@@ -226,7 +225,10 @@ class OverViewPage extends StatelessWidget {
                               fontWeight: FontWeight.w600,
                               fontFamily: "jakarta"
                           ),),
-                          CircularProgressIndicator()
+                          SizedBox(
+                              height: 20.0,
+                              width: 20.0,
+                              child: CircularProgressIndicator())
                         ],
                       ) : const Text("Load more" , style: TextStyle(
                       color: Color(0xff265AE8),

@@ -71,11 +71,11 @@
         "images"
       ]
     },
-    "courses": {
+    "taughtCourses": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::course.course",
-      "mappedBy": "user"
+      "mappedBy": "tutor"
     },
     "ratings_courses": {
       "type": "relation",
@@ -88,6 +88,18 @@
       "relation": "oneToMany",
       "target": "api::course-review.course-review",
       "mappedBy": "user"
+    },
+    "lessons": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::lesson.lesson",
+      "mappedBy": "tutor"
+    },
+    "courses": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::course.course",
+      "inversedBy": "students"
     }
   }
 }

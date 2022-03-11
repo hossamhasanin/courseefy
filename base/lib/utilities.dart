@@ -19,10 +19,10 @@ String calculateCourseDuration(double durationInHours){
 }
 
 String calculateNumberOfStudentsInCourse(int numOfStudents){
-  if (numOfStudents > 1000000){
-    return "${numOfStudents / 1000000}M students";
-  } else if (numOfStudents > 1000){
-    return "${numOfStudents / 1000}K students";
+  if (numOfStudents >= 1000000){
+    return "${(numOfStudents / 1000000).round()}M students";
+  } else if (numOfStudents >= 1000){
+    return "${(numOfStudents / 1000).round()}K students";
   } else {
     return "$numOfStudents students";
   }

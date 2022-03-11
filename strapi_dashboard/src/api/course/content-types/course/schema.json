@@ -32,12 +32,6 @@
       "target": "api::category.category",
       "inversedBy": "courses"
     },
-    "user": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "courses"
-    },
     "rating": {
       "type": "relation",
       "relation": "oneToOne",
@@ -72,6 +66,34 @@
       "relation": "oneToMany",
       "target": "api::course-review.course-review",
       "mappedBy": "course"
+    },
+    "lessons": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::lesson.lesson",
+      "mappedBy": "course"
+    },
+    "introVideoUrl": {
+      "type": "string"
+    },
+    "introduction": {
+      "type": "text"
+    },
+    "studentNumber": {
+      "type": "integer",
+      "default": 0
+    },
+    "tutor": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "taughtCourses"
+    },
+    "students": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "courses"
     }
   }
 }
